@@ -77,7 +77,6 @@ repositories {
 
 dependencies {
     compile "org.scala-lang:scala-library:%scala-version%"
-    compile 'io.othree:a-ok_2.12:1.0.1'
     compile 'org.mockito:mockito-core:2.18.+'
     compile "org.scalatest:scalatest_%%:3.0.+"
     compile 'junit:junit:4.+'
