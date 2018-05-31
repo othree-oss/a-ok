@@ -21,4 +21,6 @@ install:
 - ./gradlew jar
 
 deploy:
-- ./gradlew uploadArchives -PossrhPassword=${OSS_PASSWORD} -PossrhUsername=${OSS_USERNAME} -Psigning.password=${SIGNING_PASSWORD} -Psigning.keyId=${SIGNING_KEY_ID}
+  provider: script
+  script: "./gradlew uploadArchives -PossrhPassword=${OSS_PASSWORD} -PossrhUsername=${OSS_USERNAME} -Psigning.password=${SIGNING_PASSWORD} -Psigning.keyId=${SIGNING_KEY_ID}"
+  skip_cleanup: true
