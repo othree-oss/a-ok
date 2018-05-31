@@ -1,4 +1,4 @@
-package othree.aok
+package io.othree.aok
 
 import org.scalatest._
 import org.scalatest.mockito.MockitoSugar

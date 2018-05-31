@@ -1,8 +1,9 @@
-package othree.aok.utils
+package io.othree.aok.utils
 
+import io.othree.aok.{BaseTest, Environment}
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
-import othree.aok.{BaseTest, Environment}
+import io.othree.aok.Environment
 
 @RunWith(classOf[JUnitRunner])
 class EnvironmentTest extends BaseTest {

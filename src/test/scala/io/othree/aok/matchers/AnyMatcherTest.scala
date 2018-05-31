@@ -1,9 +1,9 @@
-package othree.aok.matchers
+package io.othree.aok.matchers
 
+import io.othree.aok.BaseTest
 import org.junit.runner.RunWith
 import org.mockito.Mockito._
 import org.scalatest.junit.JUnitRunner
-import othree.aok.BaseTest
 
 @RunWith(classOf[JUnitRunner])
 class AnyMatcherTest extends BaseTest {
