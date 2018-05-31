@@ -5,7 +5,6 @@ env:
   - secure: FsjNiHGKinfop286mhEq5cBVTC73IkIiDHqvcurk7SCXRXeyZhAeymy2mOJs/xmdtHHsOPKcoWuT1ykQfz/LiVUssvzVPpK3KmakOit5/ISDJ7UhQg9sqfxqLuz13iF5ajt2pUYxEckK7p127sXKVwBufANNmiWlQ8xSY4NVdGeVy9Qk1uu7D6/fShz1szEwXtaV+xzgZvfXPtqs5Lg74eyG2LH8/Ro23K3DumH/vRktG3YoDUYdvXIUJCKH/A2g8LlQyf2SlWdTxCev7Mtfg7hMzgYBxRIduGswHYlwgJjFK3LLW94VJhrq5AAddG8Lvy33L1bJYgeWYHajRNzAk9jIW1xrM2pxRiLabfE/KATn3WsRvNqQ8j0oMeA3ZG5Ss+0J6IZpZ7g6W/rByp2gwkemAH6WPPAhOCSnsZtirYzUT2qRWKbfMi29rncrf5i78dhdO2bYhLbp8+WBHADGWQQBszNL8mXNEDShXccww2AhSOFNsit0sBCs+iA2vW8vGMMs+gkewV4UqltHNw9knqIGGUC75GuZ+PSIvvPvB5D5vv6XQzd5TF2CBjRiWCiSOVSk0/wbUem7W5Kk3Tl73cGp8vkFT/TN6DXfditwmp0UOQwvCrFzi8ypNlGgkjDLYNn5YD2jBKsesuQQ0FtLn+LgouA/G8DXxA0wHZ6maqU=
   - secure: nVMBLQEZ80ICVSI7mEbdPy5Q9Ihb2j1HsE03xhmfCBnskbWoI/ROVrPkGLks5GNPcMgNYyZbbE9Ac7ygDfZ9K4nwwF8BAni9UonscghZNs9C9RYjj9JzZNPvAqhYz/877dAoMYHE995Fwys+Df8IPBfb0yS6Wdwh0fA6IUsRPU6uU92fmy8l1IHyQyfQ++VFvjo7Uu45eMvWkEc4Fx35ZNs84zaTaeZM55rlRmsufvmN/tYOjJ4GAWQOga+z/OrAesH19muk1uDR9iO4PPt5hSf5GsKjMgbmr75V9+ieWhiBG7bukT6MI9qo/gCitdeAHBP06AAee0g1rn+73ujrMOVfG1jLuHg9yq7ZX/G5j2nZ1nCTInA6ZaU8Gmu5s0HNwcObhQDRW0+zdAH4F9gW+XZWpwjZMBS+lzzaegtU809A8kFKnq3tyOyiM0G+iZylF4RJHXjMmhAnVf1HZmDoRzKLe1pq58i4Rq7OW2dL7nwAtuRhrX2Ku6zM7nubbZdmRD7ALrckZxUezscCx3oBElfmsgyn9Hki7/6R25ZZsf9JPzFDKm4AORJfU8Dgng72Mo4LlIEPAn3Z0feP6TSTUIAMxiGiBKQrLX86Wr/j0whiwOx/Rc3WMGE+HomUPKwMG7xU1ESYE4lmeNPhy4OZoMn5/+HX3wzY7PBEhuD0Q5M=
   - secure: cFxHcyJ3IRoz5bxvRfxIcWruqEG0tqp+4HobTfhffttygfroS0CZJAVm2WcBmEwB6viWI48Q+FonkBCXhEY1bXVvFp2sVuB2o9iZdgavDzcKohN4Wdc926kRMkBGhtjW3x9qv/X1djUiTJ3F4FmwT3xaUOtF0NZ5ZxJBGuKXvoCwo3SId6NSusVOkj8c3fWy4vqaS85v2JPC8kzOtT8eEUT3a+ndt9TfQHkwKUKLCVNfTAiFfCuQKzsqzMuaODfUYBbbdjgnADH7aslB0pKqOUmYFxdZjMdHca7K1P2JelO4kIO9pGJDlGtsJ98rR4X+nuF32r7Dck1Va6V+8oio6xAE4K2+mVWGnpafk7afVfqcbdXOAZR8ryXf3iVsT9IxfT8S63i6mvIxrMWkVkhAqLnTe+51VxQeKDMHZfK/IzEqgmnw2pxPeO8yoqheZ3GuAczP/SEncOPWthTigOaverBqh8eRg/RuGjmKK4+8L4al2QFLNAgQwiLHidP4xaZJud2txNuRRm+20TdpjHaRBkFbPPnSbxwc/YWTGlskWNEzsNSABw1Q8XQ7rqPoWP9CZQyiETiXSI++4Xe8ly3UgHaPA7Fd5eBqPWtaYoaoUmL40tH2BAJPMhUAiOxdda/NU6KushOOy1jb2WP/frIL+A+DglNq0Jc0xGFVdWLMDqY=
-
 before_cache:
 - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
 - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
@@ -13,16 +12,20 @@ cache:
   directories:
   - "$HOME/.gradle/caches/"
   - "$HOME/.gradle/wrapper/"
-
 before_install:
 - openssl aes-256-cbc -K $encrypted_0ea469e56b6a_key -iv $encrypted_0ea469e56b6a_iv
   -in othree-oss.gpg.enc -out othree-oss.gpg -d
 install:
-- ./gradlew jar
-
+- "./gradlew jar"
 deploy:
   provider: script
-  script: "./gradlew uploadArchives -PossrhPassword=${OSS_PASSWORD} -PossrhUsername=${OSS_USERNAME} -Psigning.password=${SIGNING_PASSWORD} -Psigning.keyId=${SIGNING_KEY_ID}"
+  script: "./gradlew uploadArchives -PossrhPassword=${OSS_PASSWORD} -PossrhUsername=${OSS_USERNAME}
+    -Psigning.password=${SIGNING_PASSWORD} -Psigning.keyId=${SIGNING_KEY_ID}"
   skip_cleanup: true
   on:
-    branch: master
+    branch: 1.0.1
+notifications:
+  slack:
+    on_success: always
+    on_failure: always
+    secure: KT6VZMdcpI4HRWyBOxI82EHURF52uDwBGucA83vn8VDJG618t01sbfrRDzZocaJCFKNFfWwELT78r/HKUKadtqeBgXKm3+7os7rJyaCc4LTuClWkBtIrdpXeL4tBn3Up5hQkmvwLm8W4MRjLKbrikVzU8D24QSQwbwVo2QO8CkLFQGpqyxhWFnZgOWpi7tKYlMvCnvOKohFPyUqC0J9q1kYEKRImWcZG7tk2Og8aBZ7uyNEkwX1K+1nhWyzpciKzw9EJiKy5ANj/zX7/OwgDqqUITqTxNB0ViwU4NjUUCCICz8Z+3T6beCNB/zv40I48YLCjICFHUWlI5Fkzgi/ZP/FcnKl0qxVlmHoqVSMgr0QNBh1+hkmdKxXrMKdH8ouAL1LDFtXzkqHubKPkVrPSEF+5GZhSb+qB6VYYQaMDA3t/IXKcBDIptijgANrq3aIEZjVK+6US04AfeOGqmDKLP+0qXras9ej+xduzI8992/t50ElRXsy/arkSiSDQu+UsNeat58emCXfCSwHaj93tzaQCafLPEubz+BcqI1/xm35o9vC0MuQ3I8oGoMUNvzLN07fe6fAuALWl2TObDTPvwwMbHZZ1iJkW8abyzusQ+yHEdemPKE/N7D+emgSHKE/i0L1IY/OPWfvX47D4myIJerYqH3UkIGoXfB1suqg+B+o=
