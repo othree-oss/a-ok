@@ -7,6 +7,4 @@ trait AsyncBaseTest extends AsyncWordSpecLike
 with BeforeAndAfter
 with BeforeAndAfterAll
 with Matchers
-with MockitoSugar {
-
-}
+with MockitoSugar
